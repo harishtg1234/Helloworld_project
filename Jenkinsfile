@@ -1,59 +1,59 @@
 pipeline {
-    agent { label "projecta" }
+    agent { label "Helloworld_project" }
     
     triggers {
         pollSCM('* * * * *')
     }    
 
     stages {
-        stage('clone_project_A') {
+        stage('clone_Helloworld_project') {
             steps {
-                echo 'clone project A'
-                git 'https://github.com/vincloud2/Helloworld-latest.git'
+                echo 'Helloworld_project'
+                git 'https://github.com/harishtg1234/Helloworld_project.git'
             }
         }
-        stage('build_project_A') {
+        stage('build_Helloworld_project') {
             steps {
-                echo 'build_projectA'
+                echo 'build_Helloworld_project'
                 sh 'yum install maven -y'
                 sh 'mvn -Dmaven.test.failure.ignore=true install'
             }
         } 
         stage('Docker_build') {
             steps {
-                echo 'Docker build_projectd'
-                sh 'docker build -t project_vinod .' 
+                echo 'Docker build_Helloworld_project'
+                sh 'docker build -t Helloworld_project .' 
             }
         }
         stage('login to dockerhub') {
             steps {
                 echo 'login to dockerhub'
-                sh 'docker login -u vnom1985 -p abc@12345'
+                sh 'docker login -u harishtg1234 -p dockerhub@2618'
             }
         } 
         stage('Tag the Image') {
             steps {
                 echo 'Tag the Image'
-                sh 'docker tag  project_vinod vnom1985/project_vinod'
+                sh 'docker tag  Helloworld_project harishtg1234/Helloworld_project'
             }
         } 
         stage('Deploy to docker hub') {
             steps {
                 echo 'Deploy to docker hub'
-                sh 'docker push vnom1985/project_vinod'
+                sh 'docker push harishtg1234/Helloworld_project'
             }
         }
         stage('Remove Docker conatiner') {
             steps {
                 echo 'Remove Docker conatiner'
-                sh 'docker stop project_vinod_conatiner || true'
-                sh 'docker rm project_vinod_conatiner || true'
+                sh 'docker stop Helloworld_project_conatiner || true'
+                sh 'docker rm Helloworld_project_conatiner || true'
             }
         }        
         stage('Run docker image') {
             steps {
                 echo 'Deploy to docker hub'
-                sh 'docker run --name project_vinod_conatiner -d -p 8181:8080 vnom1985/project_vinod'
+                sh 'docker run --name Helloworld_project_conatiner -d -p 80:80:8080 harishtg1234/Helloworld_project'
             }
         }
         stage('added one more stage') {
