@@ -3,16 +3,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> Welcome  to New DevOps World </title>
+<title> Welcome to New AWS and DevOps World </title>
 <style>
   body {
-    background-color: green;
+    background-color: Pink;
   }
 </style>
 </head>
 <body>
-<h1>Welcome  to New DevOps World </h1>
-<p>Welcome  to New DevOps World </p>
+<h1>Welcome to New AWS and DevOps World </h1>
+<p>Welcome to New AWS and DevOps World </p>
 </body>
 </html>
 
