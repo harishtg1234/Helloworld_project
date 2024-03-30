@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('1st step clone') {
             steps {
-                git branch: 'main', credentialsId: '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', url: 'https://github.com/harishtg1234/Helloworld_project.git'
+                git branch: 'main', credentialsId: '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1', url: 'https://github.com/harishtg1234/Helloworld_project.git'
             }
         }
         stage('2nd step build') {
